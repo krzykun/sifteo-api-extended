@@ -1,5 +1,9 @@
 #pragma once
 
+enum PrintWindowPosition {
+	Top, Center, Bottom
+};
+
 enum RGBColor
 {
 	red, green, blue, yellow, orange, purple, pink, white, black, teal, brown
@@ -37,4 +41,23 @@ static struct RGBColorMap
 			break;
 		}
 	}
+};
+
+template <class T>
+class Factory<T>
+{
+public:
+	virtual T Instantiate();
+	virtual void Destroy(T obsoleteObject);
+};
+
+class AssetSlot {};
+class AssetGroup{};
+class Icon {};
+
+class LoadingScreen
+{
+public:
+	char* background;
+
 };
