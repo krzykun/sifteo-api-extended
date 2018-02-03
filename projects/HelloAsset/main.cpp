@@ -1,4 +1,5 @@
 #include <sifteo.h>
+#include "assets.gen.h"
 #include "Environment.h"
 using namespace Sifteo;
 
@@ -11,7 +12,8 @@ void main()
 {
 	Environment env;
 	env.init(3, 1);
-	env.getCube(0).print("World says hello!");
+	env.loadAssetToCube(0, 0, CustomGroup, gateImage);
+	System::finish();
 	while (true)
 	{
 		for (unsigned i = 0; i < 0x200; i += 4)

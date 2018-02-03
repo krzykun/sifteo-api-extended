@@ -20,7 +20,7 @@ struct CubeWrapper
 		videoBuffer = newVidBuf;
 		//cubeID = newCubeID;
 		PrintWindowPosition pwp = Center;
-		setPrinterTo(newVidBuf, pwp);
+		setPrinterTo(pwp, newVidBuf);
 		printer.backgroundColor = RGB565::fromRGB(0xC7C7FC);
 	}
 
@@ -46,7 +46,7 @@ struct CubeWrapper
 	void print(const char * string, PrintWindowPosition winPos)
 	{
 		videoBuffer->attach(ID);
-		setPrinterTo(videoBuffer, winPos);
+		setPrinterTo(winPos);
 		printer.print(string);
 		System::paint();
 		System::finish();
@@ -63,7 +63,7 @@ struct CubeWrapper
 	void println(const char * string, PrintWindowPosition winPos)
 	{
 		videoBuffer->attach(ID);
-		setPrinterTo(videoBuffer, winPos);
+		setPrinterTo(winPos);
 		printer.println(string);
 		System::paint();
 		System::finish();
@@ -106,10 +106,16 @@ struct CubeWrapper
 	}
 
 	//this is private
-	void setPrinterTo(VideoBuffer* vidBufParam, PrintWindowPosition winPos)
+	void setPrinterTo(PrintWindowPosition winPos, VideoBuffer* vidBufParam)
 	{
 		//SimplePrinter newPrinter;
 		//printer = newPrinter;
 		printer.init(vidBufParam, winPos);
+	}
+	void setPrinterTo(PrintWindowPosition winPos)
+	{
+		//SimplePrinter newPrinter;
+		//printer = newPrinter;
+		printer.init(videoBuffer, winPos);
 	}
 };
