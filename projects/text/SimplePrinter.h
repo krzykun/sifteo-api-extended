@@ -69,7 +69,7 @@ struct SimplePrinter {
 	
 	void print(const char* str)
 	{
-		LOG("SimplePrinter: drawing text \"%s\" at (%d, %d). BG: %0x FG: %0x\n", str, currentPosition.x, currentPosition.y, backgroundColor.value, localVideoBuffer->colormap[1].get().value);
+		//LOG("SimplePrinter: drawing text \"%s\" at (%d, %d). BG: %0x FG: %0x\n", str, currentPosition.x, currentPosition.y, backgroundColor.value, localVideoBuffer->colormap[1].get().value);
         char ch;
         while ((ch = *str))
 		{
@@ -79,7 +79,7 @@ struct SimplePrinter {
 			{
 				case '\t':
 				{
-					LOG("SimplePrinter: detected a tabulation %d %d %d\n", currentPosition.x, startPosition.x, size.x);
+					//LOG("SimplePrinter: detected a tabulation %d %d %d\n", currentPosition.x, startPosition.x, size.x);
 					if (currentPosition.x >= startPosition.x + size.x - 8)	// safety check against tab count over 6 (more than a single line can handle)
 					{
 						charInLineCount = 0;
@@ -90,13 +90,13 @@ struct SimplePrinter {
 					
 					for (unsigned nextTabulationAt = 20; nextTabulationAt < startPosition.x + size.x; nextTabulationAt += 20) // loop that checks tabulation slots
 					{
-						LOG("SimplePrinter: Inside the loop, x: %d, nextTabulationAt value: %d\n", currentPosition.x, nextTabulationAt);
+						//LOG("SimplePrinter: Inside the loop, x: %d, nextTabulationAt value: %d\n", currentPosition.x, nextTabulationAt);
 						if (currentPosition.x < nextTabulationAt)	// if we enter this, slot is found
 						{
-							LOG("SimplePrinter: Setting the x (current %d) to %d pixels\n", currentPosition.x, nextTabulationAt);
+							//LOG("SimplePrinter: Setting the x (current %d) to %d pixels\n", currentPosition.x, nextTabulationAt);
 							currentPosition.x = nextTabulationAt;
 							charInLineCount = nextTabulationAt/5;
-							LOG("SimplePrinter: Current x: %d pixels\n", currentPosition.x);
+							//LOG("SimplePrinter: Current x: %d pixels\n", currentPosition.x);
 							break;
 						}
 					}
@@ -104,7 +104,7 @@ struct SimplePrinter {
 				}
 				case '\n':
 				{
-					LOG("SimplePrinter: detected a newline\n");
+					//LOG("SimplePrinter: detected a newline\n");
 					charInLineCount = 0;
 					lineCount++;
 					currentPosition.x = 0;
@@ -130,13 +130,13 @@ struct SimplePrinter {
 			
             // Specifics of our font format
 			uint8_t index = ch - 32;
-			LOG("SimplePrinter: index = %d\n", index);
+			//LOG("SimplePrinter: index = %d\n", index);
 			const uint8_t *data = font_data + (index << 3) + index;
-			LOG("SimplePrinter: *data = %d\n", *data);
+			//LOG("SimplePrinter: *data = %d\n", *data);
 			uint8_t escapement = *(data++);
-			LOG("SimplePrinter: escapement = %d\n", escapement);
+			//LOG("SimplePrinter: escapement = %d\n", escapement);
 			const Int2 size = {8, 8};
-			LOG("SimplePrinter: X: %d, Y: %d\n", currentPosition.x, currentPosition.y);
+			//LOG("SimplePrinter: X: %d, Y: %d\n", currentPosition.x, currentPosition.y);
 			fb->bitmap(currentPosition, size, data, 1);
 			currentPosition.x += escapement;
         }

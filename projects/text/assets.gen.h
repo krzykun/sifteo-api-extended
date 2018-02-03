@@ -6,5 +6,8 @@
 
 #pragma once
 
+extern Sifteo::AssetGroup CustomGroup;
+extern const Sifteo::AssetImage WhiteImage;
+extern const Sifteo::AssetImage CustomImage;
 extern Sifteo::AssetGroup IconAssets;
 extern const Sifteo::AssetImage Icon;

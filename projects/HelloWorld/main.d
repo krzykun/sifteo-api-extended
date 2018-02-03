@@ -36,7 +36,7 @@ main.o: main.cpp \
   d:\Profiles\kkundera\Documents\studia\inzynier\documents-WIP\wersja_2\sdk\sifteo-sdk-windows-v1.0.0-71-g0792e5f\/include\sifteo/video/bg1.h \
   d:\Profiles\kkundera\Documents\studia\inzynier\documents-WIP\wersja_2\sdk\sifteo-sdk-windows-v1.0.0-71-g0792e5f\/include\sifteo/video/bg2.h \
   d:\Profiles\kkundera\Documents\studia\inzynier\documents-WIP\wersja_2\sdk\sifteo-sdk-windows-v1.0.0-71-g0792e5f\/include\sifteo/video/tilebuffer.h \
-  fontdata.h assets.gen.h CubeWrapper.h SimplePrinter.h Environment.h
+  Environment.h Cubewrapper.h SimplePrinter.h fontdata.h
 
 d:\Profiles\kkundera\Documents\studia\inzynier\documents-WIP\wersja_2\sdk\sifteo-sdk-windows-v1.0.0-71-g0792e5f\/include\sifteo.h:
 
@@ -112,12 +112,10 @@ d:\Profiles\kkundera\Documents\studia\inzynier\documents-WIP\wersja_2\sdk\sifteo
 
 d:\Profiles\kkundera\Documents\studia\inzynier\documents-WIP\wersja_2\sdk\sifteo-sdk-windows-v1.0.0-71-g0792e5f\/include\sifteo/video/tilebuffer.h:
 
-fontdata.h:
+Environment.h:
 
-assets.gen.h:
-
-CubeWrapper.h:
+Cubewrapper.h:
 
 SimplePrinter.h:
 
-Environment.h:
+fontdata.h:
